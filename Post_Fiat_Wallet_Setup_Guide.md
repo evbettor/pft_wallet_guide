@@ -23,8 +23,6 @@
    - [Submit a Handshake](#submit-a-handshake-script)
 6. [Conclusion](#conclusion)
 
----
-
 ## **Introduction**
 
 This guide provides a step-by-step process for setting up the Post Fiat wallet and configuring trustlines to interact with the Post Fiat Token (PFT) on the XRP Ledger. It includes troubleshooting tips, best practices, and Python scripts to automate the setup process.
@@ -39,38 +37,33 @@ Ensure you have Python 3.11+ installed on your system.
 #### Windows:
 1. Download Python from [python.org](https://www.python.org/downloads/).
 2. During installation, check:
-   - Add Python to PATH
+   - `Add Python to PATH`
    - Install pip.
 3. Verify installation:
-   
-powershell
+   ```powershell
    python --version
-
+   ```
 
 #### macOS:
 1. Install via Homebrew:
-   
-bash
+   ```bash
    brew install python
-
+   ```
 2. Verify installation:
-   
-bash
+   ```bash
    python3 --version
-
+   ```
 
 #### Linux:
 1. Install using your package manager:
-   
-bash
+   ```bash
    sudo apt update
    sudo apt install python3 python3-pip python3-venv
-
+   ```
 2. Verify installation:
-   
-bash
+   ```bash
    python3 --version
-
+   ```
 
 ---
 
@@ -80,79 +73,68 @@ Git is required to clone the Post Fiat client repository.
 #### Windows:
 1. Download Git from [git-scm.com](https://git-scm.com/).
 2. Verify installation:
-   
-powershell
+   ```powershell
    git --version
-
+   ```
 
 #### macOS/Linux:
 1. Install via Homebrew (macOS) or your package manager:
-   
-bash
+   ```bash
    brew install git  # macOS
    sudo apt install git  # Linux
-
+   ```
 2. Verify installation:
-   
-bash
+   ```bash
    git --version
-
+   ```
 
 ---
 
 ### **Clone the Repository**
 1. Navigate to the desired folder:
-   
-bash
+   ```bash
    cd /path/to/projects  # macOS/Linux
    cd C:\Projects  # Windows
-
+   ```
 2. Clone the repository:
-   
-bash
+   ```bash
    git clone https://github.com/postfiatorg/pftpyclient.git
-
+   ```
 3. Navigate into the project directory:
-   
-bash
+   ```bash
    cd pftpyclient
-
+   ```
 
 ---
 
 ### **Set Up a Virtual Environment**
 1. Create a virtual environment:
-   
-bash
+   ```bash
    python -m venv pftwalletenv
-
+   ```
 2. Activate the virtual environment:
    - Windows:
-     
-powershell
+     ```powershell
      .\pftwalletenv\Scripts\activate
-
+     ```
    - macOS/Linux:
-     
-bash
+     ```bash
      source pftwalletenv/bin/activate
-
+     ```
 3. Verify activation:
-   - The prompt should show (pftwalletenv).
+   - The prompt should show `(pftwalletenv)`.
 
 ---
 
 ### **Install Dependencies**
 1. Install the client and its dependencies:
-   
-bash
+   ```bash
    pip install -e .
-
+   ```
 2. Verify installation:
-   
-bash
+   ```bash
    pip list
-
+   ```
 
 ---
 
@@ -160,17 +142,16 @@ bash
 
 ### **Launch the Wallet Client**
 1. Run the client:
-   
-bash
+   ```bash
    pft
-
+   ```
 
 ---
 
 ### **Configure Trustlines**
 1. Add a trustline for the PFT token:
-   - Issuer: rnQUEEg8yyjrwk9FhyXpKavHyCRJM9BDMW
-   - Token: PFT
+   - Issuer: `rnQUEEg8yyjrwk9FhyXpKavHyCRJM9BDMW`
+   - Token: `PFT`
 
 2. Verify using [XRPL Explorer](https://livenet.xrpl.org).
 
@@ -178,13 +159,13 @@ bash
 
 ### **Submit a Handshake**
 1. Send **0.000001 XRP** to the provided node address.
-2. Include the memo HANDSHAKE.
+2. Include the memo `HANDSHAKE`.
 3. Verify the transaction via [XRPL Explorer](https://livenet.xrpl.org).
 
 ---
 
 ### **Verify on Discord**
-1. Run /pf_verify in the Post Fiat Discord server.
+1. Run `/pf_verify` in the Post Fiat Discord server.
 2. Paste your wallet address when prompted.
 
 ---
@@ -197,16 +178,42 @@ bash
 
 ## **Troubleshooting Common Issues**
 ### Virtual Environment Setup Issues
-- **Problem**: [WinError 5] Access is denied.
+- **Problem**: `[WinError 5] Access is denied`.
 - **Solution**: Run PowerShell/terminal as an administrator.
 
 ### Transaction Errors
-- **Problem**: tecPATH_DRY.
+- **Problem**: `tecPATH_DRY`.
 - **Solution**: Ensure sufficient XRP and correct transaction details.
 
 See the full troubleshooting guide in the Python scripts section.
 
 ---
+
+## **Python Automation Scripts**
+
+### **Virtual Environment Setup**
+```python
+# setup_env.py
+# Script to automate virtual environment creation and dependency installation.
+```
+
+### **Configure Trustlines Script**
+```python
+# configure_trustline.py
+# Script to add trustlines for PFT token programmatically.
+```
+
+### **Automate Wallet Updates**
+```python
+# update_client.py
+# Automates Git pull and dependency reinstallation.
+```
+
+### **Submit a Handshake Script**
+```python
+# submit_handshake.py
+# Script to send a handshake transaction programmatically.
+```
 
 ## **Python Automation Scripts**
 
