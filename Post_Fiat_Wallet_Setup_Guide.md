@@ -34,24 +34,177 @@ This guide provides a step-by-step process for setting up the Post Fiat wallet a
 ## **Environment Setup**
 
 ### **Install Python**
-...
+Ensure you have Python 3.11+ installed on your system.
 
-(*[Rest of the environment setup section remains unchanged, for brevity]*)
+#### Windows:
+1. Download Python from [python.org](https://www.python.org/downloads/).
+2. During installation, check:
+   - Add Python to PATH
+   - Install pip.
+3. Verify installation:
+   
+powershell
+   python --version
+
+
+#### macOS:
+1. Install via Homebrew:
+   
+bash
+   brew install python
+
+2. Verify installation:
+   
+bash
+   python3 --version
+
+
+#### Linux:
+1. Install using your package manager:
+   
+bash
+   sudo apt update
+   sudo apt install python3 python3-pip python3-venv
+
+2. Verify installation:
+   
+bash
+   python3 --version
+
+
+---
+
+### **Install Git**
+Git is required to clone the Post Fiat client repository.
+
+#### Windows:
+1. Download Git from [git-scm.com](https://git-scm.com/).
+2. Verify installation:
+   
+powershell
+   git --version
+
+
+#### macOS/Linux:
+1. Install via Homebrew (macOS) or your package manager:
+   
+bash
+   brew install git  # macOS
+   sudo apt install git  # Linux
+
+2. Verify installation:
+   
+bash
+   git --version
+
+
+---
+
+### **Clone the Repository**
+1. Navigate to the desired folder:
+   
+bash
+   cd /path/to/projects  # macOS/Linux
+   cd C:\Projects  # Windows
+
+2. Clone the repository:
+   
+bash
+   git clone https://github.com/postfiatorg/pftpyclient.git
+
+3. Navigate into the project directory:
+   
+bash
+   cd pftpyclient
+
+
+---
+
+### **Set Up a Virtual Environment**
+1. Create a virtual environment:
+   
+bash
+   python -m venv pftwalletenv
+
+2. Activate the virtual environment:
+   - Windows:
+     
+powershell
+     .\pftwalletenv\Scripts\activate
+
+   - macOS/Linux:
+     
+bash
+     source pftwalletenv/bin/activate
+
+3. Verify activation:
+   - The prompt should show (pftwalletenv).
+
+---
+
+### **Install Dependencies**
+1. Install the client and its dependencies:
+   
+bash
+   pip install -e .
+
+2. Verify installation:
+   
+bash
+   pip list
+
 
 ---
 
 ## **Wallet Installation and Configuration**
 
 ### **Launch the Wallet Client**
-...
+1. Run the client:
+   
+bash
+   pft
 
-(*[Rest of this section remains unchanged, for brevity]*)
+
+---
+
+### **Configure Trustlines**
+1. Add a trustline for the PFT token:
+   - Issuer: rnQUEEg8yyjrwk9FhyXpKavHyCRJM9BDMW
+   - Token: PFT
+
+2. Verify using [XRPL Explorer](https://livenet.xrpl.org).
+
+---
+
+### **Submit a Handshake**
+1. Send **0.000001 XRP** to the provided node address.
+2. Include the memo HANDSHAKE.
+3. Verify the transaction via [XRPL Explorer](https://livenet.xrpl.org).
+
+---
+
+### **Verify on Discord**
+1. Run /pf_verify in the Post Fiat Discord server.
+2. Paste your wallet address when prompted.
+
+---
+
+### **Test Wallet Functionality**
+1. Confirm the wallet displays your XRP balance and PFT trustline.
+2. Use the **Task Request** section to request your first task.
 
 ---
 
 ## **Troubleshooting Common Issues**
+### Virtual Environment Setup Issues
+- **Problem**: [WinError 5] Access is denied.
+- **Solution**: Run PowerShell/terminal as an administrator.
 
-(*[Rest of the troubleshooting section remains unchanged, for brevity]*)
+### Transaction Errors
+- **Problem**: tecPATH_DRY.
+- **Solution**: Ensure sufficient XRP and correct transaction details.
+
+See the full troubleshooting guide in the Python scripts section.
 
 ---
 
